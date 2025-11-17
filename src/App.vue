@@ -1,11 +1,15 @@
-<script setup></script>
+<script setup>
+import AppHeader from "./components/AppHeader.vue";
+import AppFooter from "./components/AppFooter.vue";
+import TodoList from "./components/todoList/TodoList.vue";
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <AppHeader />
+  <main class="w-full max-w-xl mt-8 bg-slate-200 rounded-xl">
+    <TodoList />
+  </main>
+  <AppFooter />
 </template>
 
 <style scoped></style>
