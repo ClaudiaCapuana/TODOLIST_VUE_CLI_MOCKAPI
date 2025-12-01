@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+const props = defineProps({
+  itemsCount: { type: Number },
+});
+</script>
 <template>
   <div
     class="border-t border-slate-300 bg-slate-300 px-4 py-3 sm:px-5 text-slate-600"
@@ -13,8 +17,9 @@
           class="font-medium"
           aria-live="polite"
           aria-atomic="true"
-          >2</span
+          >{{ itemsCount }}</span
         >
+
         items left
       </p>
 

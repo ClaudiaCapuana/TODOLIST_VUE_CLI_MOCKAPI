@@ -13,22 +13,22 @@ export default class DB {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        content: data.content,
-        isCompleted: data.isCompleted,
+        content: data,
+        isCompleted: false,
       }),
     });
     return response.json();
   }
 
   static async deleteOne(id) {
-    const response = await fetch(this.apiUrl + "contacts/" + id, {
+    const response = await fetch(this.apiUrl + "todos/" + id, {
       method: "DELETE",
     });
     return response.json();
   }
 
-  static async updateOne(contact) {
-    const response = await fetch(this.apiUrl + "todos/" + todos.id, {
+  static async updateOne(todo) {
+    const response = await fetch(this.apiUrl + "todos/" + todo.id, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

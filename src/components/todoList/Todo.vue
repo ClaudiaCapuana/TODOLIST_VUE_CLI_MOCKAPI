@@ -1,21 +1,60 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+const props = defineProps({
+  todo: { type: Object, required: true },
+});
+
+const emit = defineEmits(["onDelete", "onToggle"]);
+
+const isEdited = ref(false);
+const onDelete = () => {
+  emit("onDelete", props.todo.id);
+};
+const onToggle = () => {
+  emit("onToggle", props.todo);
+};
+const onUpdate = () => {
+  isEdited.value = true;
+};
+</script>
 <template>
-  <div class="border-b border-slate-200 bg-slate-50 py-3 px-4 sm:p-5">
-    <form class="flex gap-2" aria-label="Add a new task">
-      <label for="new-todo" class="sr-only">New task</label>
+  <li class="px-4 py-3 sm:px-5" role="listitem">
+    <div class="flex items-center gap-3">
+      <!-- La ligne entière est cliquable via label -->
       <input
-        id="new-todo"
-        type="text"
-        placeholder="What needs to be done?"
-        class="w-full bg-slate-100 border border-slate-300 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        :id="props.todo.id"
+        type="checkbox"
+        v-model="props.todo.isCompleted"
+        class="h-4 w-4 text-blue-600 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+        @change="onToggle"
+        @dblclick="onUpdate"
       />
-      <button
-        type="submit"
-        class="shrink-0 px-4 py-3 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+      <label
+        :for="props.todo.id"
+        class="flex-1 text-slate-800 cursor-pointer"
+        :class="{ 'line-through': todo.isCompleted }"
       >
-        Add
+        {{ props.todo.content }}
+      </label>
+      <button
+        class="text-red-600/90 hover:text-red-700 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 rounded"
+        aria-label="Delete task"
+        title="Delete"
+        @click="onDelete"
+        @dblclick.stop="onUpdate"
+      >
+        ✕
       </button>
-    </form>
-  </div>
+    </div>
+    <!-- Champ d'édition (masqué par défaut, visible en mode edit) -->
+    <input
+      type="text"
+      value="Buy milk"
+      class="hidden mt-2 w-full border border-slate-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      v-if="isEdited"
+      v-model="props.todo.content"
+    />
+    {{ props.todo.content }}
+  </li>
 </template>
 <style scoped></style>

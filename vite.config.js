@@ -12,4 +12,6 @@ export default defineConfig({
       "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
+
+  base: "/TODOLIST_VUE_CLI_MOCKAPI/",
 });
