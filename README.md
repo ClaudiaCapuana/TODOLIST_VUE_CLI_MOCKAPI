@@ -1,38 +1,31 @@
-# todolist-vue-cli-mockapi-craft
+# 📝 Todo List App — VueJS
 
-This template should help get you started developing with Vue 3 in Vite.
+Une application web de gestion de tâches (Todo List) simple, efficace et moderne, développée en **VueJS**.
 
-## Recommended IDE Setup
+Cette application est inspirée des spécifications et de l’ergonomie des templates **TodoMVC**.
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+---
 
-## Recommended Browser Setup
+## ✨ Fonctionnalités
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+- ➕ Ajouter une nouvelle tâche
+- ✏️ Modifier une tâche existante
+- ❌ Supprimer une tâche
+- ✅ Marquer une tâche comme complétée via un **toggle**
+- 🎨 Changement visuel automatique selon l’état de la tâche
+- 🔎 Filtres disponibles dans le footer :
+  - Toutes les tâches
+  - Tâches complétées
+  - Tâches non complétées
+- 🧹 Suppression de toutes les tâches complétées
 
-## Customize configuration
+---
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## 🛠️ Technologies utilisées
 
-## Project Setup
+- VueJS
+- MockApi
+- Tailwind
+- Architecture inspirée de **TodoMVC**
 
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+[DEMO](https://claudiacapuana.github.io/TODOLIST_VUE_CLI_MOCKAPI/)
